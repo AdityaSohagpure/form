@@ -22,4 +22,50 @@ export class Form1Component {
       return checkbox.checked;
     });
   }
+
+  connections1 = [
+    { id: 'Borewell', value: 'Borewell', label: 'Borewell' },
+    { id: 'Protected open well', value: 'Protected open well', label: 'Protected open well' },
+    { id: 'Rain-water', value: 'Rainwater', label: 'Rainwater' }
+  ];
+
+  showHelloworld = false;
+
+  updateSelection1() {
+    this.showHelloworld = this.connections1.some(connection1 => {
+      const checkbox = document.getElementById(connection1.id) as HTMLInputElement;
+      return checkbox.checked;
+    })
+  }
+
+  connections2 = [
+    {id:'Water Can-Bottled Water-Bubble Top', value:'Water Can/ Bottled Water/ Bubble Top', label: 'Water Can/ Bottled Water/ Bubble Top'},
+    {id: 'Private Tanker-Truck', value: 'Private Tanker - Truck', label: 'Private Tanker - Truck'}
+  ];
+
+  showHelloWorld2 = false;
+
+  updateSelection2  () {
+    this.showHelloWorld2 = this.connections2.some(connection2 => {
+      const checkbox = document.getElementById(connection2.id) as HTMLInputElement;
+      return checkbox.checked;
+    })
+  }
+
+  connections3 = [
+    {id: 'STP', value:'STP', label: 'STP'},
+    {id: 'Recycle or Reuse Water (Non-RO)', value: 'Recycle or Reuse Water (Non-RO)', label: 'Recycle or Reuse Water (Non-RO)'},
+    {id: 'Grey Water Treatment Plant', value: 'Grey Water Treatment Plant', label: 'Grey Water Treatment Plant'},
+    {id: 'Black Water Treatment Plant', value: 'Black Water Treatment Plant', label: 'Black Water Treatment Plant'},
+    {id: 'Both Grey and Black Water', value: 'Both Grey and Black Water', label: 'Both Grey and Black Water'},
+  ];
+
+  showHelloWorld3 = false;
+
+  updateSelection3  () {
+    this.showHelloWorld3 = this.connections3.some(connection3 => {
+      const checkbox = document.getElementById(connection3.id) as HTMLInputElement;
+      return checkbox.checked;
+    })
+  }
 }

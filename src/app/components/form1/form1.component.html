@@ -507,47 +507,30 @@
                       </div>
                     </li> 
                     <!-- checkbox group 2 -->
-                    
-                     <!-- <legend>2. Borewell, Open Well, and Rainwater</legend>
-                     <input type="checkbox" id="borewell" name="borewell" value="Borewell">
-                     <label for="borewell">Borewell ஆழ்குழாய் கிணறு</label><br>
-                 
-                     <input type="checkbox" id="protected-open-well" name="protected-open-well" value="Protected open well">
-                     <label for="protected-open-well">Protected open well பாதுகாப்பான திறந்த கிணறு</label><br>
-                 
-                     <input type="checkbox" id="unprotected-open-well" name="unprotected-open-well" value="Unprotected open well">
-                     <label for="unprotected-open-well">Unprotected open well பாதுகாப்பற்ற திறந்த கிணறு</label><br>
-                 
-                     <input type="checkbox" id="rainwater" name="rainwater" value="Rainwater">
-                     <label for="rainwater">Rainwater மழை நீர்</label><br>
-                    -->
-                  <!-- checkbox group 3 -->
-<!--                    
-                     <legend>3. Water Can/ Private Lorry</legend>
-                     <input type="checkbox" id="water-can" name="water-source" value="Water Can/ Bottled Water/ Bubble Top">
-                     <label for="water-can">Water Can/ Bottled Water/ Bubble Top தண்ணீர் கேன்/ தண்ணீர் பாட்டில்/ குமிழி தண்ணீர் கேன்</label><br>
-                 
-                     <input type="checkbox" id="private-tanker" name="water-source" value="Private Tanker – Truck">
-                     <label for="private-tanker">Private Tanker – Truck தனியார் தண்ணீர் லாரி மூலம்</label><br>
-                    -->
+                    <li>
+                     <legend>2. Borewell, Open Well, and Rainwater</legend>
+                     <div *ngFor="let connection1 of connections1">
+                        <input type="checkbox" [id]="connection1.id" name="Borewell-Open Well-Rainwater" [value]="connection1.value" (change)="updateSelection1()">
+                        <label [for]="connection1.id">{{ connection1.label }}</label>
+                    </div>
+                  </li>
+                  <!-- checkbox group 3 -->                  
+                    <li> 
+                    <legend>3. Water Can/ Private Lorry</legend>
+                    <div *ngFor="let connection2 of connections2">
+                      <input type="checkbox" [id]="connection2.id" name="Water Can/ Private Lorry" [value]="connection2.value" (change)="updateSelection2()">
+                      <label [for]="connection2.id"> {{connection2.label}} </label>
+                    </div>
+                  </li>
                  
                     <!-- checkbox group 4 -->
-                     <!-- <legend>4. Treated Water</legend>
-                     <input type="checkbox" id="stp" name="treated-water" value="STP">
-                     <label for="stp">STP எஸ்.டி.பி</label><br>
-                 
-                     <input type="checkbox" id="recycle-reuse" name="treated-water" value="Recycle or Reuse Water (Non-RO)">
-                     <label for="recycle-reuse">Recycle or Reuse Water (Non-RO) தண்ணீரை மறுசுழற்சி அல்லது மறுபயன்பாடு</label><br>
-                 
-                     <input type="checkbox" id="grey-water-plant" name="treated-water" value="Grey Water Treatment Plant">
-                     <label for="grey-water-plant">Grey Water Treatment Plant சாம்பல் நீர் சுத்திகரிப்பு நிலையம்</label><br>
-                 
-                     <input type="checkbox" id="black-water-plant" name="treated-water" value="Black Water Treatment Plant">
-                     <label for="black-water-plant">Black Water Treatment Plant கருப்பு நீர் சுத்திகரிப்பு நிலையம்</label><br>
-                 
-                     <input type="checkbox" id="both-grey-black" name="treated-water" value="Both Grey and Black Water">
-                     <label for="both-grey-black">Both Grey and Black Water சாம்பல் மற்றும் கருப்பு நீர் சுத்திகரிப்பு நிலையம்</label><br>
-                    -->
+                    <li>
+                      <legend>4. Treated Water</legend>
+                      <div *ngFor="let connection3 of connections3">
+                        <input type="checkbox" [id]="connection3.id" name="Treated Water" [value]="connection3.value" (change)="updateSelection3()">
+                        <label [for]="connection3.id"> {{connection3.label}} </label>
+                     </div>
+                   </li>
                   <!-- checkbox group 5 -->
                    
                      <!-- <legend>5. Other – </legend>
@@ -936,7 +919,10 @@
                      <label for="minimum-individuals">Number (எண்ணிக்கை) </label></td>
                </tr>
 
-               <tr>
+               
+               <!--if group 2 is selected than  --> 
+                <div class="sub_from" *ngIf="showHelloWorld">
+                  <tr>
                   <td>11.1</td>
                   <td>Please tell for which purposes water is used in this establishment from Borewell, Open Well, and Rainwater?
                      நிறுவனத்தில்‌ குடிநீரை எந்தெந்த காரணங்களுக்காக நீங்கள் பயன்படுத்துகிறீர்கள்‌? 
@@ -1084,7 +1070,11 @@
                      <label for="others-specify">Others – Specify</label><br>
                      <input type="text"></td>
                </tr>
-               <tr>
+               </div>
+
+               <!--if group 3 is selected than  --> 
+               <div class="sub_from" *ngIf="showHelloWorld2">
+                  <tr>
                   <td>11.1</td>
                   <td>Please tell for which purposes water is used in this establishment from Water Can and Private Lorry?
                      நிறுவனத்தில்‌ குடிநீரை எந்தெந்த காரணங்களுக்காக நீங்கள் பயன்படுத்துகிறீர்கள்‌? 
@@ -1228,7 +1218,11 @@
                      <label for="others-specify">Others – Specify</label><br>
                      <input type="text"></td>
                </tr>
-               <tr>
+               </div>
+
+               <!--if group 4 is selected than  --> 
+               <div class="sub_from" *ngIf="showHelloWorld3">
+                  <tr>
                   <td>11.1</td>
                   <td>Please tell for which purposes water is used in this establishment from Treated Water?
                      நிறுவனத்தில்‌ சுத்திகரிக்கப்பட்ட நீரை எந்தெந்த காரணங்களுக்காக நீங்கள் பயன்படுத்துகிறீர்கள்‌? 
@@ -1260,8 +1254,8 @@
                      <input type="checkbox" id="others-specify" name="water-filter" value="Others">
                      <label for="others-specify">Others – Specify பிற பயன்பாடுகள் – குறிப்பிடுக</label><br>
                      <input type="text"><br></td>
-               </tr>
-               <tr>
+                  </tr>
+                  <tr>
                   <td>11.2</td>
                   <td>How do you store the water that you receive from Treated Water
                      சுத்திகரிக்கப்பட்ட நீர் இணைப்பிலிருந்து தண்ணீரை நீங்கள் எப்படி சேமித்து வைக்கிறீர்கள்
@@ -1287,8 +1281,8 @@
                          
                        </label>
                      <input type="text"><br></td>
-               </tr>
-               <tr>
+                  </tr>
+                  <tr>
                   <td>11.3</td>
                   <td>Based on choice in 11.2 Estimate the capacity of UG/ OHT/ Drums used by household from Treated Water
                      11.2 தேர்வுக்கு ஏற்ப நிலத்தடி அல்லது வீட்டின் மேல்நிலை நீர் சேமிப்பு தொட்டிகள்/ அமைப்புகள், ட்ரம்களின் கொள்ளளவு திறனை கணக்கிடவும்
@@ -1303,15 +1297,15 @@
                      
                    
                      <label for="others">Others <input type="text"> Enter Value in Litres</label><br></td>
-               </tr>
-               <tr>
+                  </tr>
+                  <tr>
                   <td>11.4</td>
                   <td>Can you tell approximately how many vessels/ liters of water you receive per day from Treated Water
                      உத்தேசமாக எத்தனை லிட்டர்கள்‌ சுத்திகரிக்கப்பட்ட நீர் இணைப்பிலிருந்து மூலம் தினசரி உங்களுக்குக் கிடைக்கிறது?
                      </td>
                   <td><input type="text"> Enter Value in Litres (அளவினை லிட்டர்களில் குறிப்பிடுக)</td>
-               </tr>
-               <tr>
+                  </tr>
+                  <tr>
                   <td>11.5</td>
                   <td>Do you consume/ use the water as you receive from the Treated Water you mentioned?
                      நீங்கள் சுத்திகரிக்கப்பட்ட நீரை அப்படியே பயனபடுத்துவீர்களா?
@@ -1342,8 +1336,8 @@
                        <span class="formbold-radio-checkmark"></span>
                      </label>
                    </div></td>
-               </tr>
-               <tr>
+                  </tr>
+                  <tr>
                   <td>11.6</td>
                   <td>If No to above, 11.5 what are the treatment methods you use for your home?
                      முந்தைய வினாவிற்கு இல்லை என்றால்‌, 11.5 உங்கள்‌ வீட்டில்‌ நீர்‌ சுத்திகரிப்பு செய்ய என்ன வழிமுறைகளைக்‌ கையாளுகிறீர்கள்‌?
@@ -1376,7 +1370,8 @@
                      <input type="checkbox" id="others-specify" name="frequency" value="Others">
                      <label for="others-specify">Others – Specify</label><br>
                      <input type="text"></td>
-               </tr>
+                  </tr>
+              </div>
                <tr>
                   <td>11.1</td>
                   <td>Please tell for which purposes water is used in this establishment from Other Sources?
