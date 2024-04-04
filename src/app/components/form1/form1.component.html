@@ -498,39 +498,39 @@
                      
                      (அனைத்தையும் அல்லது பொருத்தமான விருப்பங்களை தேர்வு செய்யவும்)
                      </td>
-                  <td> <li> 
+                  <td>  
                      <!-- checkbox group 1 -->
                      <legend>1. CMWSSB Connection</legend>
                      <div *ngFor="let connection of connections">
                         <input type="checkbox" [id]="connection.id" name="cmwssb-connection" [value]="connection.value" (change)="updateSelection()">
                         <label [for]="connection.id">{{ connection.label }}</label>
                       </div>
-                    </li> 
+                     
                     <!-- checkbox group 2 -->
-                    <li>
+                    
                      <legend>2. Borewell, Open Well, and Rainwater</legend>
                      <div *ngFor="let connection1 of connections1">
                         <input type="checkbox" [id]="connection1.id" name="Borewell-Open Well-Rainwater" [value]="connection1.value" (change)="updateSelection1()">
                         <label [for]="connection1.id">{{ connection1.label }}</label>
                     </div>
-                  </li>
+                  
                   <!-- checkbox group 3 -->                  
-                    <li> 
+                    
                     <legend>3. Water Can/ Private Lorry</legend>
                     <div *ngFor="let connection2 of connections2">
                       <input type="checkbox" [id]="connection2.id" name="Water Can/ Private Lorry" [value]="connection2.value" (change)="updateSelection2()">
                       <label [for]="connection2.id"> {{connection2.label}} </label>
                     </div>
-                  </li>
+                  
                  
                     <!-- checkbox group 4 -->
-                    <li>
+                    
                       <legend>4. Treated Water</legend>
                       <div *ngFor="let connection3 of connections3">
                         <input type="checkbox" [id]="connection3.id" name="Treated Water" [value]="connection3.value" (change)="updateSelection3()">
                         <label [for]="connection3.id"> {{connection3.label}} </label>
                      </div>
-                   </li>
+                   
                   <!-- checkbox group 5 -->
                    
                      <!-- <legend>5. Other – </legend>

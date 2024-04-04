@@ -29,10 +29,10 @@ export class Form1Component {
     { id: 'Rain-water', value: 'Rainwater', label: 'Rainwater' }
   ];
 
-  showHelloworld = false;
+  showHelloWorld1 = false;
 
   updateSelection1() {
-    this.showHelloworld = this.connections1.some(connection1 => {
+    this.showHelloWorld1 = this.connections1.some(connection1 => {
       const checkbox = document.getElementById(connection1.id) as HTMLInputElement;
       return checkbox.checked;
     })
